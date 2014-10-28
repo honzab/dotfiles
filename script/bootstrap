@@ -56,7 +56,7 @@ setup_vim () {
         git clone https://github.com/gmarik/vundle.git bundle/vundle
     fi
     cp $HOME/.vim/vimrc.template $HOME/.vim/vimrc
-    rm $HOME/.vimrc
+    rm -f $HOME/.vimrc
     ln -s $HOME/.vim/vimrc $HOME/.vimrc
     vim "+silent PluginInstall" "+silent qall"
     echo "colorscheme Tomorrow-Night" >> $HOME/.vim/vimrc
