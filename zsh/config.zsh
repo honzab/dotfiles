@@ -42,3 +42,7 @@ bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
 bindkey '^R' history-incremental-search-backward
+
+# Mac OS X's home/end
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
