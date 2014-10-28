@@ -51,9 +51,13 @@ setup_gitconfig () {
 
 setup_vim () {
     if ! [ -d $HOME/.vim/bundle/vundle ]; then
+	cp $HOME/.vim/vimrc.template $HOME/.vim/vimrc
         info 'Cloning vundle.git'
         cd $HOME/.vim
-        git clone https://github.com/gmarik/vundle.git bundle/vundle && vim +PluginInstall +qall
+        git clone https://github.com/gmarik/vundle.git bundle/vundle && \
+            vim "+silent PluginInstall" "+silent qall" && \
+            echo "colorscheme Tomorrow-Night" >> $HOME/.vim/vimrc && \
+            find -E $HOME/.vim/bundle/YouCompleteMe -regex ".*\/ycm_core\.(so|pyd|dll)" && cd $HOME/.vim/bundle/YouCompleteMe && ./install.sh --clang-completer
     fi
 }
 

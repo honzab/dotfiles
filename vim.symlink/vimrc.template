@@ -70,8 +70,6 @@ au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 " Custom status line
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-colorscheme Tomorrow-Night
-
 if exists('+colorcolumn')
     au FileType python setlocal colorcolumn=80
 endif
