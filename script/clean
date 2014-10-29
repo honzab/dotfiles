@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd)
+
+set -e
+
+rm -f $HOME/.vim
+rm -f $HOME/.zshrc
+rm -f $HOME/.gitconfig
+rm -f $HOME/.gitconfig_global
+
+rm -rf $DOTFILES_ROOT/vim.symlink/bundle/*
+rm -f $DOTFILES_ROOT/git/gitconfig.symlink
+rm -f $DOTFILES_ROOT/vim/vimrc
