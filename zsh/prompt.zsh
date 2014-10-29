@@ -18,11 +18,7 @@ set_prompt () {
     else
         export RPROMPT=""
     fi
-   if [[ -n $SSH_CONNECTION ]]; then
-        export PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}$(box_name)%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info) %(?,,%{${fg_bold[white]}%}[%?]%{$reset_color%} )$ '
-    else
-        export PROMPT='%{$fg[cyan]%}%n%{$reset_color%}@%{$fg_bold[yellow]%}$(box_name)%{$reset_color%}%{$fg_bold[cyan]%}:${PWD/#$HOME/~}%{$reset_color%}%{$fg[blue]%}$(git_prompt_info)%{$reset_color%} %(?,,%{${fg_bold[white]}%}[%?]%{$reset_color%} )$ '
-    fi
+    export PROMPT='%{$fg[cyan]%}%n%{$reset_color%}@%{$fg_bold[yellow]%}$(box_name)%{$reset_color%}%{$fg_bold[cyan]%}:${PWD/#$HOME/~}%{$reset_color%}%{$fg[blue]%}$(git_prompt_info)%{$reset_color%} %(?,,%{${fg_bold[white]}%}[%?]%{$reset_color%} )$ '
 }
 
 precmd() {
