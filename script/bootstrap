@@ -65,7 +65,7 @@ setup_vim () {
     vim "+silent PluginInstall" "+silent qall"
     echo "colorscheme Tomorrow-Night" >> $HOME/.vim/vimrc
 
-    if [ $(grep -e "^Plugin 'Valloric/YouCompleteMe'" vim.symlink/vimrc | wc -l) -ne 0]; then
+    if [ $(grep -e "^Plugin 'Valloric/YouCompleteMe'" $HOME/.vimrc | wc -l) -ne 0 ]; then
         if [ $(find $HOME/.vim/bundle/YouCompleteMe -name "ycm_core.so" -or -name "ycm_core.pyd" -or -name "ycm_core.dll" | wc -l) -eq 0 ]; then
             cd $HOME/.vim/bundle/YouCompleteMe
             ./install.sh --clang-completer
