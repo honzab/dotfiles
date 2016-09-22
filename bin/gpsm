@@ -1,0 +1,17 @@
+#!/bin/bash
+
+REMOTES=`git remote -v | cut -f 1 | uniq | sort`
+
+if ! echo $REMOTES | grep -q "upstream"; then
+    echo "Cannot find upstream remote"
+    exit 1
+fi
+
+if ! echo $REMOTES | grep -q "origin"; then
+    echo "Cannot find origin remote"
+    exit 1
+fi
+
+git fetch --all --tags
+git pull upstream master
+git push origin master
