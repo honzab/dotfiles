@@ -32,7 +32,7 @@ setopt HIST_REDUCE_BLANKS
 #   like: git comm-[tab]
 setopt complete_aliases
 
-zle -N newtab
+zle -N newtab emacs
 
 bindkey '^[^[[D' backward-word
 bindkey '^[^[[C' forward-word
@@ -46,3 +46,10 @@ bindkey '^R' history-incremental-search-backward
 # Mac OS X's home/end
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
+
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+
+# bindkey '\e\b' backward-delete-word
+#
+# python -c "import datetime; print \"👶  {0}\".format((datetime.datetime(2015, 04, 05) - datetime.datetime.utcnow()).days)"

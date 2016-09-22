@@ -6,7 +6,7 @@ if has("gui_macvim")
     map <D-f> :set invfu<CR>
     vmap <Backspace> d
 
-    set gfn=Monaco:h13				    " Set a nice font (Mac OS X only?)
+    set gfn=Monaco:h12				    " Set a nice font (Mac OS X only?)
 
     let g:LatexBox_viewer="skim"
 elseif has("gui_gtk2")
@@ -26,4 +26,4 @@ set cmdheight=2   " Make command window larger so we can see compile errors
 "colorscheme vividchalk	    		" Select a colorscheme
 "colorscheme solarized
 "colorscheme solarized
-colorscheme Molokai2
+" colorscheme Molokai2
