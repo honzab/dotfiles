@@ -1,0 +1,8 @@
+# Git log nice
+glnice () {
+    if [ $1 ]; then
+        git log --no-merges --pretty="%C(auto)%h;%Cblue%ae;%Creset%s;%ai" $1 | column -t -s ";"
+    else
+        echo "Specify range (for example HEAD..origin/master)"
+    fi
+}
