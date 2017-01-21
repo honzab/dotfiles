@@ -1,5 +1,5 @@
 alias reload!='. ~/.zshrc'
-alias cds='source `which virtualenvwrapper_lazy.sh` && workon spotify && cd ~/Work/Spotify/Code/payments'
+alias cds='source `which virtualenvwrapper_lazy.sh` && workon spotify && cd ~/Work/ghe.spotify.net/payments/payments'
 alias vi='vim'
 alias gpom='git pull --rebase origin master'
 alias gpum='git pull upstream master'
