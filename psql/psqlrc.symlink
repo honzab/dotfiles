@@ -1,0 +1,28 @@
+\timing
+
+-- By default, NULL displays as an empty space. Is it actually an empty
+-- string, or is it null? This makes that distinction visible.
+\pset null '∅'
+
+\set PROMPT1 '%[%033[33;1m%]%x%[%033[0m%]%[%033[1m%]%/%[%033[0m%]%R%# '
+
+-- Use a separate history file per-database.
+\set HISTFILE ~/.psql_history- :DBNAME
+
+-- If a command is run more than once in a row, only store it once in the
+-- history.
+\set HISTCONTROL ignoredups
+
+-- Autocomplete keywords (like SELECT) in upper-case, even if you started
+-- typing them in lower case.
+\set COMP_KEYWORD_CASE upper
+
+-- Show replication delay
+\set replication_delay 'SELECT CASE WHEN pg_last_xlog_receive_location() = pg_last_xlog_replay_location() THEN INTERVAL \'0\' ELSE now() - pg_last_xact_replay_timestamp() END AS replication_delay';
+
+-- Show duplicate indexes
+\set index_dups '(SELECT indrelid::regclass as table, array_agg(indexrelid::regclass) as duplicates FROM pg_index group by indrelid, indkey having count(*) > 1)';
+
+-- List unused indexes
+\set index_never_used '(SELECT indexrelid::regclass as index, relid::regclass as table FROM pg_stat_user_indexes JOIN pg_index USING (indexrelid) WHERE idx_scan = 0 AND indisunique is false order by relid::regclass)';
+
