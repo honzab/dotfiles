@@ -1,0 +1,20 @@
+#!/usr/bin/env bash -e
+
+if [[ $1 && ! $2 ]]; then
+    git fetch --all > /dev/null 2>&1
+    commit="$(git ls-remote upstream | grep $1\/head | head -n1 | cut -f1)"
+    branch="$(git describe --all --contains "$commit" | head -n1 | cut -d \/ -f 3)"
+    # echo $commit
+    # echo $branch
+    git fetch upstream pull/"$1"/head:"$branch"
+    git checkout "$branch"
+    exit 0
+fi
+
+if [[ $1 && $2 ]]; then
+    git fetch upstream pull/"$1"/head:"$2"
+    git checkout "$2"
+else
+    echo "$(basename "$0"): <pr_number> [optional: local_branch]"
+fi
+
