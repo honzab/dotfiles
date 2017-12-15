@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+PREV_VERSION=$1
+NEXT_VERSION=$2
+
+PREV_NAME="./$1_postgresql_upgrade.sql"
+NEXT_NAME="./$2_postgresql_upgrade.sql"
+
+if [[ ! -f "$PREV_NAME" ]]; then
+    echo "File $PREV_NAME does not exist"
+    exit 1
+fi
+
+git show ":3:$PREV_NAME" > $NEXT_NAME
+git show ":2:$PREV_NAME" > $PREV_NAME
+git add $PREV_NAME $NEXT_NAME
+git status
